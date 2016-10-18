@@ -1,6 +1,6 @@
 class CommentSerializer < ActiveModel::Serializer
   attributes :id, :body, :author, :published_at
 
-  has_one :author
-  belongs_to :post_id
+  has_one :user
+  has_one :post
 end
