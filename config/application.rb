@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 
 module BlogForVolt
   class Application < Rails::Application
+    require './lib/json_web_token.rb'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -26,8 +27,7 @@ module BlogForVolt
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     #config.api_only = true
-    config.autoload_paths << Rails.root.join('lib')
-    config.autoload_paths << Rails.root.join('app/commands')
+    #config.autoload_paths << Rails.root.join('lib')
     config.time_zone = 'Moscow'
   end
 end
