@@ -15,7 +15,7 @@ class Api::V1::UsersController < Api::V1::ApiApplicationController
 
   # POST /api/v1/upload_avatar.json
   def upload_avatar
-    if current_user.update(params.permit(:avatar))
+    if current_user.update!(params.permit(:avatar))
       render json: { url: current_user.avatar.url(:medium) }
     else
       render status: :not_acceptable, json: { errors: current_user.errors }
@@ -25,6 +25,6 @@ class Api::V1::UsersController < Api::V1::ApiApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :nickname, :avatar)
+    params.permit(:email, :nickname, :password, :avatar)
   end
 end
