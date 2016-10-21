@@ -17,6 +17,16 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'simple_command'
 gem 'kaminari'
+gem 'sass-rails', '>= 3.2'
+gem 'rails-assets-bootstrap', '4.0.0.alpha.4', source: 'https://rails-assets.org'
+gem 'rails-assets-tether', source: 'https://rails-assets.org'
+gem 'jquery-rails'
+gem 'uglifier'
+gem 'coffee-rails'
+gem 'turbolinks'
+gem 'react-rails'
+gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -32,6 +42,7 @@ end
 
 group :development do
   gem 'listen', '~> 3.0.5'
+  gem 'web-console'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

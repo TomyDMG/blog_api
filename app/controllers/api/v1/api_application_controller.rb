@@ -1,4 +1,4 @@
-class Api::V1::ApplicationController < ActionController::API
+class Api::V1::ApiApplicationController < ActionController::API
   before_action :authenticate_request
   attr_reader :current_user
 

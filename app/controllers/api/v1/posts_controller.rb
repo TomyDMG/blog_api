@@ -1,4 +1,4 @@
-class Api::V1::PostsController < Api::V1::ApplicationController
+class Api::V1::PostsController < Api::V1::ApiApplicationController
   before_action :set_post, only: [:show]
 
   #GET /api/v1/posts.json
@@ -12,13 +12,12 @@ class Api::V1::PostsController < Api::V1::ApplicationController
 
   #GET /api/v1/posts/:post_id.json
   def show
-    render json: @post, except: [:user, :comments]
+    render json: @post, except: [:created_at, :updated_at, :user_id]
   end
 
   # POST /api/v1/posts.json
   def create
     @post = current_user.posts.new post_params
-
     set_author
 
     if @post.published_at == nil
@@ -26,7 +25,7 @@ class Api::V1::PostsController < Api::V1::ApplicationController
     end
 
     if @post.save
-      render json: @post, status: :created, except: [:created_at, :updated_at, :user_id]#, include: {:author_nickname => {:only => :author}}
+      render json: @post, status: :created, except: [:created_at, :updated_at, :user_id]
     else
       render status: :not_acceptable, json: { errors: @post.errors }
     end
