@@ -10,4 +10,12 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+
+  def self.sorted_for_report(from, to)
+    User.all.sort_by {|u| u.sorting_value(from, to)}
+  end
+
+  def sorting_value(start_date, end_date)
+    posts.in_period(start_date, end_date).count + (comments.in_period(start_date, end_date).count / 10)
+  end
 end

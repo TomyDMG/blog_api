@@ -1,0 +1,16 @@
+<table style="border: 2px solid #000; border-collapse: collapse;">
+    <tr>
+        <th style="border: 2px solid #000;">Nickname</th>
+        <th style="border: 2px solid #000;">Email</th>
+        <th style="border: 2px solid #000;">Post's quantity</th>
+        <th style="border: 2px solid #000;">Comment's quantity</th>
+    </tr>
+    <% User.sorted_for_report(@start_date, @end_date).each do |u| %>
+    <tr>
+        <td style="border: 2px solid #000;"><%= u.nickname %></td>
+        <td style="border: 2px solid #000;"><%= u.email %></td>
+        <td style="border: 2px solid #000;"><%= u.posts.in_period(@start_date, @end_date).count %></td>
+        <td style="border: 2px solid #000;"><%= u.comments.in_period(@start_date, @end_date).count %></td>
+    </tr>
+    <% end %>
+</table>

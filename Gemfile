@@ -26,6 +26,9 @@ gem 'turbolinks'
 gem 'react-rails'
 gem 'paperclip', git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
+gem 'sidekiq'
+gem 'postmark-rails'
+gem 'ffaker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -4,4 +4,8 @@ class Post < ApplicationRecord
 
   belongs_to :user
   has_many :comments
+
+  def self.in_period(from, to)
+    where(created_at: from..to)
+  end
 end
